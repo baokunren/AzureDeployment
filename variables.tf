@@ -28,7 +28,6 @@ variable "vm_name" {
   default = "kevinIAC.vm"
 }
 
-
 variable "nic" {
   description = "network interface card"
   default = "kevinIAC-nic"

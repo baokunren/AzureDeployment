@@ -38,7 +38,7 @@ resource "azurerm_network_security_group" "nsg" {
 
 # NSG Rule to allow RDP (Remote Desktop Protocol)
 resource "azurerm_network_security_rule" "nsg_rule_rdp" {
-  name                        = "allow-rdp"
+  name                        = "allow-rdp"   # RDP connection
   priority                    = 1001
   direction                   = "Inbound"
   access                      = "Allow"
@@ -102,7 +102,7 @@ resource "azurerm_private_dns_zone" "mysql_dnslink" {
 resource "azurerm_private_dns_zone_virtual_network_link" "dnsdomain" {
   name                  = "kevinVnetZone.com"
   private_dns_zone_name = azurerm_private_dns_zone.mysql_dnslink.name
-  virtual_network_id    = azurerm_virtual_network.vnet.id
+  virtual_network_id    = azurerm_virtual_network.vnet.id  # same vnet
   resource_group_name   = azurerm_resource_group.rg.name
 }
 
